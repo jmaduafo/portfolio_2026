@@ -43,7 +43,11 @@ function Services() {
                     <div className="flex items-center gap-2">
                       {item.technologies.map((desc) => {
                         return (
-                          <Badge key={desc} variant="outline" className="capitalize">
+                          <Badge
+                            key={desc}
+                            variant="outline"
+                            className="capitalize"
+                          >
                             {desc}
                           </Badge>
                         );
@@ -57,10 +61,15 @@ function Services() {
         })}
       </Accordion>
       <div className="flex justify-center">
-        <Button size={"lg"}>
+        <a
+          href="/documents/report.pdf"
+          download="Jasmine_Maduafokwa_Resume.pdf"
+        >
+          <Button size={"lg"}>
             Download resume
-            <Download className="size-5" strokeWidth={1.5}/>
-        </Button>
+            <Download className="size-5" strokeWidth={1.5} />
+          </Button>
+        </a>
       </div>
     </section>
   );

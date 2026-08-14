@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +32,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="p-4 flex flex-col">
         <Navbar/>
-        <main>{children}</main>
+        <main className="min-h-screen">{children}</main>
+        <Footer/>
       </body>
     </html>
   );

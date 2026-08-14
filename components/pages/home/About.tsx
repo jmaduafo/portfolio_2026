@@ -22,6 +22,7 @@ function About() {
             src={About1}
             alt="two mobile phones on black platform"
             className="object-cover object-bottom"
+            placeholder="blur"
           />
         </div>
         <div className="flex-2">
@@ -29,6 +30,7 @@ function About() {
             src={About2}
             alt="mobile phone leaning on rock"
             className="object-cover object-bottom"
+            placeholder="blur"
           />
         </div>
       </div>

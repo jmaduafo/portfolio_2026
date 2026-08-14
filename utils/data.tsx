@@ -31,6 +31,10 @@ export const socialLinks = [
     href: "",
   },
   {
+    title: "github",
+    href: "",
+  },
+  {
     title: "behance",
     href: "",
   },
@@ -53,11 +57,13 @@ export const services = [
       "vite",
       "tailwind",
       "electron",
+      "zustand",
+      "shadcn UI",
       "SEO",
       "GSAP",
       "Framer Motion",
       "Lenis Scroll",
-      "git",
+      "git"
     ],
     description:
       "With frontend, I'm able to combine both my design capabilities with my problem-solving skills, and as I code, I am extensively exercising both simulataneously. I lean more into React frameworks, mainly Next.js, which allows me to increase web performance, optimize images and media much easier, and improve SEO rankings, and TypeScript for catching bugs and discrepanicies early, ensuring that my code is error-free and correct throughout.",

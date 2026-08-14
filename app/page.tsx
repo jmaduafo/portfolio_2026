@@ -2,6 +2,7 @@ import FormatContainer from "@/components/containers/FormatContainer";
 import About from "@/components/pages/home/About";
 import Hero from "@/components/pages/home/Hero";
 import Services from "@/components/pages/home/Services";
+import Works from "@/components/pages/home/Works";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Hero/>
         <About/>
         <Services/>
+        <Works/>
       </>
     </FormatContainer>
   );
