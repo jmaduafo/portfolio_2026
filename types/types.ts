@@ -10,3 +10,8 @@ export type Project = {
   portrait_images: string[];
   landscape_images: string[];
 };
+
+export interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+}

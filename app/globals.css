@@ -185,4 +185,8 @@
   html {
     @apply font-sans;
   }
+  button {
+    cursor: pointer;
+    transition-duration: 300ms;
+  }
 }

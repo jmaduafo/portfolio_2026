@@ -1,5 +1,4 @@
 import Header3 from "@/components/headings/Header3";
-import Header6 from "@/components/headings/Header6";
 import SectionTitle from "@/components/titles/SectionTitle";
 import Image from "next/image";
 import React from "react";

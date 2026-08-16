@@ -16,7 +16,7 @@ export const navLinks = [
     href: "/works",
   },
   {
-    title: "contact",
+    title: "contacts",
     href: "#contact",
   },
 ];

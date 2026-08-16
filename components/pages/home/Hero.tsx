@@ -8,7 +8,7 @@ function Hero() {
     <section className="flex flex-col gap-6">
       <Header1 className="max-w-3xl">
         <span className="">
-          I'm <span className="font-sans-italic">Jasmine Maduafokwa</span>, a
+          I&apos;m <span className="font-sans-italic">Jasmine Maduafokwa</span>, a
           web developer and UI/UX designer based in Chicago, Illinois
         </span>
       </Header1>
