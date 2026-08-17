@@ -13,6 +13,7 @@
     "@ai-sdk/react": "^4.0.69",
     "@ai-sdk/rsc": "^3.0.66",
     "@base-ui/react": "^1.7.0",
+    "@nanostores/react": "github:ai/react",
     "@shadcn/react": "^0.3.0",
     "ai": "^7.0.66",
     "class-variance-authority": "^0.7.1",

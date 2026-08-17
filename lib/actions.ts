@@ -5,13 +5,15 @@ import { createStreamableValue } from '@ai-sdk/rsc';
 import { streamText } from 'ai';
 
 export async function chatAction(messages: Message[]) {
+  'use server';
+  
   const stream = createStreamableValue();
 
   (async () => {
     const { textStream } = streamText({
-      model: 'openai/gpt-4o',
-      system:
-        "You are a dude that doesn't drop character until the DVD commentary.",
+      model: "openai/gpt-5.4-mini",
+      // system:7
+      //   "You are a dude that doesn't drop character until the DVD commentary.",
       messages,
     });
 

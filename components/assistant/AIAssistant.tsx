@@ -15,14 +15,24 @@ import {
   EmptyTitle,
 } from "../ui/empty";
 import { cn } from "@/lib/utils";
-import { chatAction } from "@/lib/actions";
-import { Message } from "@/types/types";
-import { readStreamableValue } from "@ai-sdk/rsc";
+import {
+  MessageScroller,
+  MessageScrollerButton,
+  MessageScrollerContent,
+  MessageScrollerProvider,
+  MessageScrollerViewport,
+} from "../ui/message-scroller";
+import { Bubble, BubbleContent } from "../ui/bubble";
+import { useChat } from "@ai-sdk/react";
+
+export const maxDuration = 30;
 
 function AIAssistant() {
   const [input, setInput] = useState("");
-  const [conversation, setConversation] = useState<Message[]>([]);
-  const [loading, setLoading] = useState(false);
+
+  const { messages, setMessages, sendMessage, status } = useChat({});
+
+  const loading = status === "streaming" || status === "submitted";
 
   const prompts = [
     "Which project shows Jasmine's strongest frontend skills?",
@@ -30,41 +40,18 @@ function AIAssistant() {
     "Which tools does Jasmine use?",
   ];
 
-  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!input.trim() || loading) return;
 
-    if (!input.length) {
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const { messages, newMessage } = await chatAction([
-        ...conversation,
-        { role: "user", content: input },
-      ]);
-
-      let textContent = "";
-
-      for await (const delta of readStreamableValue(newMessage)) {
-        textContent = `${textContent}${delta}`;
-
-        setConversation([
-          ...messages,
-          { role: "assistant", content: textContent },
-        ]);
-
-        setInput("");
-      }
-    } catch (err: any) {
-      console.log(err.message);
-    } finally {
-      setLoading(false);
-    }
+    // 2. Dispatch text payload safely to the transport loop
+    sendMessage({ text: input });
+    setInput("");
   };
-  
-  console.log(conversation);
+
+  const clearMessages = () => {
+    setMessages([]);
+  };
 
   return (
     <div className="">
@@ -85,43 +72,78 @@ function AIAssistant() {
               <Paragraph text="How should I help you today?" />
             </div>
             <div>
-              <Button size={"icon"} variant={"outline"}>
+              <Button
+                onClick={clearMessages}
+                disabled={!messages.length}
+                size={"icon"}
+                variant={"outline"}
+              >
                 <RotateCcw className="size-6" strokeWidth={1.5} />
               </Button>
             </div>
           </div>
-          <div className="py-3">
-            <Empty className="w-full">
-              <EmptyHeader>
-                <EmptyTitle>Want to chat?</EmptyTitle>
-                <EmptyDescription className="text-background">
-                  Hi! I&apos;m Jasmine's portfolio assistant. What would you
-                  like to explore?
-                </EmptyDescription>
-              </EmptyHeader>
-              <EmptyContent className="flex flex-col gap-2 w-full">
-                <Paragraph
-                  text="Suggested prompts"
-                  className="font-sans-medium"
-                />
-                <div className="w-full flex items-center justify-center flex-wrap gap-2 text-sm">
-                  {prompts.map((prompt) => {
-                    return (
-                      <button
-                        key={prompt}
-                        type="button"
-                        onClick={() => setInput(prompt)}
-                        className={cn(
-                          "py-1 px-2 border border-background text-background rounded-full hover:bg-background hover:text-foreground",
-                        )}
-                      >
-                        {prompt}
-                      </button>
-                    );
-                  })}
-                </div>
-              </EmptyContent>
-            </Empty>
+          <div className="py-3 h-[45vh] overflow-auto">
+            {messages.length ? (
+              <MessageScrollerProvider>
+                <MessageScroller className="">
+                  <MessageScrollerViewport>
+                    <MessageScrollerContent>
+                      {messages.map((message, i) => (
+                        <Bubble
+                          key={`${message.id} ${i + 1}`}
+                          align={message.role === "user" ? "end" : "start"}
+                        >
+                          {message.parts.map((part, index) => {
+                            if (part.type === "text") {
+                              return (
+                                <BubbleContent key={index + 1}>
+                                  {part.text}
+                                </BubbleContent>
+                              );
+                            }
+
+                            return null;
+                          })}
+                        </Bubble>
+                      ))}
+                    </MessageScrollerContent>
+                  </MessageScrollerViewport>
+                  <MessageScrollerButton />
+                </MessageScroller>
+              </MessageScrollerProvider>
+            ) : (
+              <Empty className="w-full">
+                <EmptyHeader>
+                  <EmptyTitle>Want to chat?</EmptyTitle>
+                  <EmptyDescription className="text-background">
+                    Hi! I&apos;m Jasmine's portfolio assistant. What would you
+                    like to explore?
+                  </EmptyDescription>
+                </EmptyHeader>
+                <EmptyContent className="flex flex-col gap-2 w-full">
+                  <Paragraph
+                    text="Suggested prompts"
+                    className="font-sans-medium"
+                  />
+                  <div className="w-full flex items-center justify-center flex-wrap gap-2 text-sm">
+                    {prompts.map((prompt) => {
+                      return (
+                        <button
+                          key={prompt}
+                          type="button"
+                          onClick={() => setInput(prompt)}
+                          className={cn(
+                            "py-1 px-2 border border-background text-background rounded-full hover:bg-background hover:text-foreground",
+                          )}
+                        >
+                          {prompt}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </EmptyContent>
+              </Empty>
+            )}
           </div>
           <form
             onSubmit={handleSubmit}
