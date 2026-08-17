@@ -24,6 +24,7 @@ import {
 } from "../ui/message-scroller";
 import { Bubble, BubbleContent } from "../ui/bubble";
 import { useChat } from "@ai-sdk/react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 export const maxDuration = 30;
 
@@ -72,14 +73,23 @@ function AIAssistant() {
               <Paragraph text="How should I help you today?" />
             </div>
             <div>
-              <Button
-                onClick={clearMessages}
-                disabled={!messages.length}
-                size={"icon"}
-                variant={"outline"}
-              >
-                <RotateCcw className="size-6" strokeWidth={1.5} />
-              </Button>
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <Button
+                      onClick={clearMessages}
+                      disabled={!messages.length}
+                      size={"icon"}
+                      variant={"outline"}
+                    >
+                      <RotateCcw className="size-6" strokeWidth={1.5} />
+                    </Button>
+                  }
+                />
+                <TooltipContent side={"bottom"} className={"bg-background text-foreground"}>
+                  <span className="tracking-wide">Refresh chat</span>
+                </TooltipContent>
+              </Tooltip>
             </div>
           </div>
           <div className="py-3 h-[45vh] overflow-auto">
@@ -130,8 +140,8 @@ function AIAssistant() {
                       return (
                         <button
                           key={prompt}
-                          type="button"
-                          onClick={() => setInput(prompt)}
+                          type="submit"
+                          onClick={() => {setInput(prompt)}}
                           className={cn(
                             "py-1 px-2 border border-background text-background rounded-full hover:bg-background hover:text-foreground",
                           )}

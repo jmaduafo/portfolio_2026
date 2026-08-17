@@ -1,13 +1,12 @@
 import React from "react";
 import { navLinks } from "@/utils/data";
 import Link from "next/link";
-import { Button } from "../ui/button";
 import Header3 from "../headings/Header3";
 import AIAssistant from "../assistant/AIAssistant";
 
 function Navbar() {
   return (
-    <header className="py-4 flex justify-between items-center sticky top-0 bg-background">
+    <header className="py-4 flex justify-between items-center sticky top-0 bg-background z-50">
       <div>
         <Link href={"/"}>
           <Header3 text="JM" className="font-sans-bold" />

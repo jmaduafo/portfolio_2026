@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   const { messages } = await req.json();
 
   const result = streamText({
-    model: openai("gpt-4o"),
+    model: openai("gpt-5.6-terra"),
     // 2. Clean up the UI messages into the proper model schema
     messages: await convertToModelMessages(messages),
     onError({ error }) {

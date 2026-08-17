@@ -62,7 +62,7 @@ function Services() {
       </Accordion>
       <div className="flex justify-center">
         <a
-          href="/documents/report.pdf"
+          href="/documents/resume.pdf"
           download="Jasmine_Maduafokwa_Resume.pdf"
         >
           <Button size={"lg"}>
