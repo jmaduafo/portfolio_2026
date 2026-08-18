@@ -1,9 +1,13 @@
-import React from 'react'
+import FormatContainer from "@/components/containers/FormatContainer";
+import WorksList from "@/components/pages/works/WorksList";
+import React from "react";
 
 function Works() {
   return (
-    <div>Works</div>
-  )
+    <FormatContainer>
+      <WorksList />
+    </FormatContainer>
+  );
 }
 
-export default Works
+export default Works;

@@ -21,3 +21,11 @@ export interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
+
+export enum Role {
+  FRONTEND = "Frontend",
+  BACKEND = "Backend",
+  CREATIVE_DIRECTION = "Creative Direction",
+  WEB_DESIGN = "Web Design",
+  VISUAL_IDENTITY = "Visual Identity"
+}
