@@ -1,15 +1,21 @@
+import { StaticImageData } from "next/image";
+
 export type Project = {
   title: string;
   roles: string[];
   technologies: string[];
   year: string;
   website: string;
-  github: string;
+  github?: string;
   duration: string;
-  description: string[];
-  portrait_images: string[];
-  landscape_images: string[];
+  descriptions: string[];
+  images: ProjectImages;
 };
+
+export type ProjectImages = {
+  landscape: StaticImageData[];
+  portrait: StaticImageData[];
+}
 
 export interface Message {
   role: 'user' | 'assistant';

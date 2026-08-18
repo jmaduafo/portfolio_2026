@@ -40,11 +40,12 @@ function AIAssistant() {
     "Which projects use Next.js?",
     "Which tools does Jasmine use?",
   ];
-
+  
+  
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() || loading) return;
-
+    
     // 2. Dispatch text payload safely to the transport loop
     sendMessage({ text: input });
     setInput("");
@@ -53,7 +54,13 @@ function AIAssistant() {
   const clearMessages = () => {
     setMessages([]);
   };
+  
+  const handlePrompt = (prompt: string, e: React.SubmitEvent<HTMLFormElement>) => {
+    setInput(prompt);
 
+    handleSubmit(e);
+  }
+  
   return (
     <div className="">
       <Popover>
