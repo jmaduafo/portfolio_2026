@@ -247,9 +247,9 @@ export const projects = [
         landscape: [
           LandscapeOracle1, 
           LandscapeOracle2, 
-          LandscapeOracle3, 
           LandscapeOracle4, 
           LandscapeOracle5, 
+          LandscapeOracle3, 
           LandscapeOracle6, 
           LandscapeOracle7, 
           LandscapeOracle8, 

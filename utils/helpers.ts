@@ -1,11 +1,5 @@
 import { Project } from "@/types/types";
 
-export const createSlug = (title: string) => {
-  const wordSplit = title.toLowerCase().split(" ").join("-");
-
-  return wordSplit;
-};
-
 export const getFilteredProjectsByRole = (
   projects: Project[],
   selectedTag: string,
@@ -17,3 +11,13 @@ export const getFilteredProjectsByRole = (
       .includes(selectedTag.toLowerCase()),
   );
 };
+
+export const createSlug = (title: string) => {
+  const wordSplit = title.toLowerCase().split(" ").join("-");
+
+  return wordSplit;
+};
+
+export function deSlug(text: string) {
+  return text.split("-").join(" ").toLowerCase();
+}

@@ -13,7 +13,7 @@ function WorksList() {
   const [selectedTag, setSelectedTag] = useState("all");
 
   return (
-    <div className="">
+    <section className="">
       <div className="flex flex-col gap-3">
         <Header1>
           Works ({" "}
@@ -22,7 +22,7 @@ function WorksList() {
             : getFilteredProjectsByRole(projects, selectedTag).length}{" "}
           )
         </Header1>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center flex-wrap gap-2">
           <Button
             variant={"outline"}
             className={cn(
@@ -73,7 +73,7 @@ function WorksList() {
               );
             })}
       </div>
-    </div>
+    </section>
   );
 }
 

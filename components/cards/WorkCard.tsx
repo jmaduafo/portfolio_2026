@@ -23,7 +23,7 @@ function WorkCard({ project }: { readonly project: Project }) {
             text={project.title}
             className="font-sans-medium capitalize"
           />
-          <div className="mt-1.5 flex items-center gap-1">
+          <div className="mt-1.5 flex items-center flex-wrap gap-1">
             {project.roles.map((role) => {
               return (
                 <Badge variant={"outline"} key={role}>

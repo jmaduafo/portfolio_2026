@@ -1,8 +1,14 @@
+import FormatContainer from '@/components/containers/FormatContainer';
+import Detail from '@/components/pages/work-detail/Detail';
 import React from 'react'
 
-function WorkDetail() {
+async function WorkDetail({ params }: { params: { title: string }}) {
+  const { title } = await params;
+
   return (
-    <div>WorkDetail</div>
+    <FormatContainer>
+      <Detail title={title}/>
+    </FormatContainer>
   )
 }
 
