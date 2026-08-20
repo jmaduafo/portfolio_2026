@@ -8,8 +8,8 @@ import { createSlug } from "@/utils/helpers";
 
 function WorkCard({ project }: { readonly project: Project }) {
   return (
-    <Link href={`/works/${createSlug(project.title)}`}>
-      <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3">
+      <Link href={`/works/${createSlug(project.title)}`}>
         <div className="h-[50vh] w-full group overflow-hidden">
           <Image
             src={project.images.landscape[0]}
@@ -18,23 +18,20 @@ function WorkCard({ project }: { readonly project: Project }) {
             placeholder="blur"
           />
         </div>
-        <div>
-          <Header5
-            text={project.title}
-            className="font-sans-medium capitalize"
-          />
-          <div className="mt-1.5 flex items-center flex-wrap gap-1">
-            {project.roles.map((role) => {
-              return (
-                <Badge variant={"outline"} key={role}>
-                  {role}
-                </Badge>
-              );
-            })}
-          </div>
+      </Link>
+      <div>
+        <Header5 text={project.title} className="font-sans-medium capitalize" />
+        <div className="mt-1.5 flex items-center flex-wrap gap-1">
+          {project.roles.map((role) => {
+            return (
+              <Badge variant={"outline"} key={role}>
+                {role}
+              </Badge>
+            );
+          })}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

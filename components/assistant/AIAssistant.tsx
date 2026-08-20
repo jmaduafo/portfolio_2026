@@ -72,7 +72,7 @@ function AIAssistant() {
             </Button>
           }
         />
-        <PopoverContent className="w-xl">
+        <PopoverContent className="max-w-xl w-fit">
           {/* HEADING */}
           <div className="border-b border-b-background/20 py-3 flex justify-between items-start gap-4">
             <div className="flex flex-col">
@@ -129,7 +129,7 @@ function AIAssistant() {
                 </MessageScroller>
               </MessageScrollerProvider>
             ) : (
-              <Empty className="w-full">
+              <Empty className="w-fit">
                 <EmptyHeader>
                   <EmptyTitle>Want to chat?</EmptyTitle>
                   <EmptyDescription className="text-background">
@@ -150,7 +150,7 @@ function AIAssistant() {
                           type="submit"
                           onClick={() => {setInput(prompt)}}
                           className={cn(
-                            "py-1 px-2 border border-background text-background rounded-full hover:bg-background hover:text-foreground",
+                            "whitespace-nowrap py-1 px-2 border border-background text-background rounded-full hover:bg-background hover:text-foreground",
                           )}
                         >
                           {prompt}

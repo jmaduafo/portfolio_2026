@@ -4,6 +4,7 @@ import Header3 from "@/components/headings/Header3";
 import Header4 from "@/components/headings/Header4";
 import Header6 from "@/components/headings/Header6";
 import Paragraph from "@/components/headings/Paragraph";
+import SmallParagraph from "@/components/headings/SmallParagraph";
 import SectionTitle from "@/components/titles/SectionTitle";
 import { Badge } from "@/components/ui/badge";
 import { createSlug, deSlug } from "@/utils/helpers";
@@ -39,7 +40,7 @@ function Detail({ title }: { title: string }) {
   return (
     <div className="flex flex-col gap-8">
       <section>
-        <div className="flex flex-col md:flex-row items-center gap-8">
+        <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="flex-1 w-full">
             <Image
               src={project.images.landscape[0]}
@@ -48,13 +49,10 @@ function Detail({ title }: { title: string }) {
               placeholder="blur"
             />
           </div>
-          <div className="flex-1 flex flex-col gap-5">
+          <div className="flex flex-col gap-3 lg:max-w-xl xl:max-w-2xl 2xl:max-w-5xl">
             <div>
               <Header1>{project.title}</Header1>
-              <div>
-                <div></div>
-              </div>
-              <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap mt-1">
                 {project.roles.map((role) => {
                   return (
                     <Badge
@@ -68,31 +66,45 @@ function Detail({ title }: { title: string }) {
                 })}
               </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <Paragraph text={project.descriptions[0]} />
-              {/* border-t border-t-foreground */}
-              <div className="py-6 border border-foreground flex items-center justify-evenly gap-3">
-                <Statistics data={durationData} title={durationTitle} />
-                <div className="h-8 w-px bg-foreground/50"></div>
-                <Statistics
-                  data={project.technologies.length}
-                  title={"tools used"}
-                />
-                <div className="h-8 w-px bg-foreground/50"></div>
-                <Statistics data={durationData} title={durationTitle} />
-                <div className="h-8 w-px bg-foreground/50"></div>
-                <Statistics data={+project.year} title={"year created"} />
+            <div className="flex flex-col gap-3">
+              <Paragraph
+                text={project.descriptions[0]}
+                className="font-sans-medium"
+              />
+              <div className="flex flex-col gap-1">
+                <Badge className="text-sm 2xl:text-base">Tools used</Badge>
+                {/* <SmallParagraph text="TOOLS USED" className="font-sans-medium underline"/> */}
+                <p className="font-sans-medium">
+                  {project.technologies.map((tool, i) => {
+                    return (
+                      <span key={tool} className="capitalize">
+                        {tool}
+                        {i !== project.technologies.length - 1 ? ", " : ""}
+                      </span>
+                    );
+                  })}
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="flex flex-col md:flex-row justify-between items-start gap-4">
-        <SectionTitle text="goal" />
-        <Header3
-          text={project.descriptions[1]}
-          className="font-sans-medium max-w-5xl indent-10"
-        />
+      <section className="">
+        <div className="flex-1 flex flex-col gap-5">
+          {/* border-t border-t-foreground */}
+          <div className="py-6 border-[1.5px] border-foreground flex items-center justify-evenly gap-3">
+            <Statistics data={durationData} title={durationTitle} />
+            <div className="h-6 w-px bg-foreground/50"></div>
+            <Statistics
+              data={project.technologies.length}
+              title={"tools used"}
+            />
+            <div className="h-6 w-px bg-foreground/50"></div>
+            <Statistics data={project.roles.length} title={"roles"} />
+            <div className="h-6 w-px bg-foreground/50"></div>
+            <Statistics data={+project.year} title={"year created"} />
+          </div>
+        </div>
       </section>
       <section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -124,7 +136,7 @@ function Detail({ title }: { title: string }) {
         <div>
           <Link className="" href={`/works/${createSlug(prevProject.title)}`}>
             <button className="flex items-center gap-2 text-4xl md:text-5xl uppercase font-sans-medium">
-              <ArrowLeft className="size-12"/>
+              <ArrowLeft className="size-12" />
               {prevProject.title}
             </button>
           </Link>
@@ -133,7 +145,7 @@ function Detail({ title }: { title: string }) {
           <Link className="" href={`/works/${createSlug(nextProject.title)}`}>
             <button className="flex items-center gap-2 text-4xl md:text-5xl uppercase font-sans-medium">
               {nextProject.title}
-              <ArrowRight className="size-12"/>
+              <ArrowRight className="size-12" />
             </button>
           </Link>
         </div>

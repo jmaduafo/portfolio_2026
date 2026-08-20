@@ -25,6 +25,7 @@ export interface Message {
 export enum Role {
   FRONTEND = "Frontend",
   BACKEND = "Backend",
+  AI = "AI",
   CREATIVE_DIRECTION = "Creative Direction",
   WEB_DESIGN = "Web Design",
   VISUAL_IDENTITY = "Visual Identity"

@@ -118,8 +118,7 @@ export const projects = [
     roles: ["frontend", "backend", "creative direction", "web design"],
     technologies: [
       "React.js",
-      "Tailwind",
-      "CSS",
+      "Tailwind CSS",
       "Firebase",
       "Redux",
       "Node.js",

@@ -184,6 +184,7 @@
   }
   html {
     @apply font-sans;
+    scroll-behavior: smooth;
   }
   button {
     cursor: pointer;

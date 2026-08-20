@@ -8,7 +8,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="py-4 px-3 flex flex-col gap-3 bg-foreground text-background">
+    <footer id="contact" className="py-4 px-3 flex flex-col gap-3 bg-foreground text-background">
       <div className="uppercase flex justify-between items-start gap-5 flex-wrap">
         <div className="flex items-start gap-5 flex-wrap">
           <ul>
