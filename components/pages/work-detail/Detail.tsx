@@ -115,6 +115,7 @@ function Detail({ title }: { title: string }) {
                   src={img}
                   alt={`${project.title} landscape img ${i + 1}`}
                   className="object-cover object-center w-full"
+                  placeholder={Boolean(img.blurDataURL) ? "blur" : "empty"}
                 />
               </div>
             );
@@ -126,6 +127,7 @@ function Detail({ title }: { title: string }) {
                   src={img}
                   alt={`${project.title} portrait img ${i + 1}`}
                   className="object-cover object-center h-full w-full"
+                  placeholder={Boolean(img.blurDataURL) ? "blur" : "empty"}
                 />
               </div>
             );

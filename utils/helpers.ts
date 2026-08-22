@@ -21,3 +21,11 @@ export const createSlug = (title: string) => {
 export function deSlug(text: string) {
   return text.split("-").join(" ").toLowerCase();
 }
+
+export function orderDate(array: any[], isAsc?: boolean) {
+  if (isAsc) {
+    return array.toSorted((a, b) => a["year"] - b["year"]);
+  } else {
+    return array.toSorted((a, b) => b["year"] - a["year"]);
+  }
+}

@@ -10,7 +10,7 @@ function WorkCard({ project }: { readonly project: Project }) {
   return (
     <div className="flex flex-col gap-3">
       <Link href={`/works/${createSlug(project.title)}`}>
-        <div className="h-[50vh] w-full group overflow-hidden">
+        <div className="h-[40vh] md:h-[50vh] w-full group overflow-hidden">
           <Image
             src={project.images.landscape[0]}
             alt={`${project.title.toLowerCase()} landscape`}

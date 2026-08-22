@@ -3,6 +3,7 @@ import { navLinks } from "@/utils/data";
 import Link from "next/link";
 import Header3 from "../headings/Header3";
 import AIAssistant from "../assistant/AIAssistant";
+import { Menu } from "lucide-react";
 
 function Navbar() {
   return (
@@ -13,7 +14,7 @@ function Navbar() {
         </Link>
       </div>
       <nav className="flex items-center gap-4">
-        <ul className="flex items-center gap-4">
+        <ul className="hidden sm:flex items-center gap-4">
           {navLinks.map((nav) => {
             return (
               <li
@@ -26,6 +27,9 @@ function Navbar() {
           })}
         </ul>
         <AIAssistant />
+        <button className="sm:hidden">
+          <Menu className="size-6" strokeWidth={2} />
+        </button>
       </nav>
     </header>
   );
