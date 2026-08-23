@@ -1,3 +1,5 @@
+import Appear from "@/components/animations/Appear";
+import RollingText from "@/components/animations/RollingText";
 import Header2 from "@/components/headings/Header2";
 import Header6 from "@/components/headings/Header6";
 import SectionTitle from "@/components/titles/SectionTitle";
@@ -27,10 +29,12 @@ function Services() {
               <AccordionTrigger>
                 <div className="flex items-start gap-1.5 sm:gap-3">
                   <p>{(i + 1).toString().padStart(2, "0")}.</p>
-                  <Header2
-                    className="uppercase font-sans-medium"
-                    text={item.title}
-                  />
+                  <RollingText>
+                    <Header2
+                      className="uppercase font-sans-medium"
+                      text={item.title}
+                    />
+                  </RollingText>
                 </div>
               </AccordionTrigger>
               <AccordionContent>
@@ -40,7 +44,7 @@ function Services() {
                   </p>
                   <div className="flex flex-col gap-3">
                     <Header6 text={item.description} />
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center flex-wrap gap-2">
                       {item.technologies.map((desc) => {
                         return (
                           <Badge
@@ -61,15 +65,17 @@ function Services() {
         })}
       </Accordion>
       <div className="flex justify-center">
-        <a
-          href="/documents/resume.pdf"
-          download="Jasmine_Maduafokwa_Resume.pdf"
-        >
-          <Button size={"lg"}>
-            Download resume
-            <Download className="size-5" strokeWidth={1.5} />
-          </Button>
-        </a>
+        <Appear>
+          <a
+            href="/documents/resume.pdf"
+            download="Jasmine_Maduafokwa_Resume.pdf"
+          >
+            <Button size={"lg"}>
+              Download resume
+              <Download className="size-5" strokeWidth={1.5} />
+            </Button>
+          </a>
+        </Appear>
       </div>
     </section>
   );

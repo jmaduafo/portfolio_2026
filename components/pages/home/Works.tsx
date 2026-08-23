@@ -1,3 +1,4 @@
+import Appear from "@/components/animations/Appear";
 import WorkCard from "@/components/cards/WorkCard";
 import SectionTitle from "@/components/titles/SectionTitle";
 import { Button } from "@/components/ui/button";
@@ -22,12 +23,14 @@ function Works() {
         })}
       </div>
       <div className="flex justify-center">
-        <Link href={"/works"}>
-          <Button size={"lg"}>
-            See all projects
-            <ArrowUpRight className="size-6" strokeWidth={1.5}/>
-          </Button>
-        </Link>
+        <Appear>
+          <Link href={"/works"}>
+            <Button size={"lg"}>
+              See all projects
+              <ArrowUpRight className="size-6" strokeWidth={1.5} />
+            </Button>
+          </Link>
+        </Appear>
       </div>
     </section>
   );

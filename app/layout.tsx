@@ -11,6 +11,8 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Descend from "@/components/animations/Descend";
+import LenisScroll from "@/components/lenis/LenisScroll";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,6 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={cn(
         "antialiased",
         "font-sans",
@@ -32,13 +35,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
       suppressHydrationWarning
     >
-      <body className="relative p-4 flex flex-col">
-        <TooltipProvider>
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </TooltipProvider>
-      </body>
+      <LenisScroll>
+        <body className="relative p-4 flex flex-col">
+          <TooltipProvider>
+            <Navbar />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </TooltipProvider>
+        </body>
+      </LenisScroll>
     </html>
   );
 }

@@ -8,6 +8,8 @@ import { getFilteredProjectsByRole } from "@/utils/helpers";
 import { projects } from "@/utils/works";
 import React, { Fragment, useState } from "react";
 import { motion } from "framer-motion";
+import Appear from "@/components/animations/Appear";
+import PopUp from "@/components/animations/PopUp";
 
 function WorksList() {
   const [selectedTag, setSelectedTag] = useState("all");
@@ -15,46 +17,50 @@ function WorksList() {
   return (
     <section className="">
       <div className="flex flex-col gap-3">
-        <Header1>
-          Works ({" "}
-          {selectedTag === "all"
-            ? projects.length
-            : getFilteredProjectsByRole(projects, selectedTag).length}{" "}
-          )
-        </Header1>
-        <div className="flex items-center flex-wrap gap-2">
-          <Button
-            variant={"outline"}
-            className={cn(
-              "text-base hover:bg-foreground hover:text-background",
-              selectedTag === "all"
-                ? "bg-foreground text-background"
-                : "bg-background text-foreground",
-            )}
-            onClick={() => setSelectedTag("all")}
-          >
-            All
-          </Button>
-          {Object.values(Role).map((role) => {
-            return (
-              <Button
-                onClick={() => {
-                  setSelectedTag(role);
-                }}
-                key={role}
-                variant={"outline"}
-                className={cn(
-                  "text-base hover:bg-foreground hover:text-background",
-                  selectedTag === role
-                    ? "bg-foreground text-background"
-                    : "bg-background text-foreground",
-                )}
-              >
-                {role}
-              </Button>
-            );
-          })}
-        </div>
+        <PopUp>
+          <Header1>
+            Works ({" "}
+            {selectedTag === "all"
+              ? projects.length
+              : getFilteredProjectsByRole(projects, selectedTag).length}{" "}
+            )
+          </Header1>
+        </PopUp>
+        <Appear>
+          <div className="flex items-center flex-wrap gap-2">
+            <Button
+              variant={"outline"}
+              className={cn(
+                "text-base hover:bg-foreground hover:text-background",
+                selectedTag === "all"
+                  ? "bg-foreground text-background"
+                  : "bg-background text-foreground",
+              )}
+              onClick={() => setSelectedTag("all")}
+            >
+              All
+            </Button>
+            {Object.values(Role).map((role) => {
+              return (
+                <Button
+                  onClick={() => {
+                    setSelectedTag(role);
+                  }}
+                  key={role}
+                  variant={"outline"}
+                  className={cn(
+                    "text-base hover:bg-foreground hover:text-background",
+                    selectedTag === role
+                      ? "bg-foreground text-background"
+                      : "bg-background text-foreground",
+                  )}
+                >
+                  {role}
+                </Button>
+              );
+            })}
+          </div>
+        </Appear>
       </div>
       <div className="grid md:grid-cols-2 gap-8 mt-5">
         {selectedTag === "all"

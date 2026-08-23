@@ -1,11 +1,6 @@
 import Header1 from "@/components/headings/Header1";
 import Header2 from "@/components/headings/Header2";
-import Header3 from "@/components/headings/Header3";
-import Header4 from "@/components/headings/Header4";
-import Header6 from "@/components/headings/Header6";
 import Paragraph from "@/components/headings/Paragraph";
-import SmallParagraph from "@/components/headings/SmallParagraph";
-import SectionTitle from "@/components/titles/SectionTitle";
 import { Badge } from "@/components/ui/badge";
 import { createSlug, deSlug } from "@/utils/helpers";
 import { projects } from "@/utils/works";
@@ -26,12 +21,14 @@ function Detail({ title }: { title: string }) {
   if (!project || projectIndex < 0)
     return <Paragraph text="Project not found" />;
 
+  // LANDSCAPE ND PORTRAIT IMAGES OF WORK
   const landscapeImages = project.images.landscape.slice(1);
   const portraitImages = project.images.portrait;
 
   const durationData = +project.duration.split(" ")[0];
   const durationTitle = project.duration.split(" ")[1];
 
+  // PREVIOUS AND NEXT PROJECTS USING LOGIC
   const prevProject =
     projects[(projectIndex + projects.length - 1) % projects.length];
   const nextProject =

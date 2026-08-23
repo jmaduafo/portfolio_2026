@@ -2,6 +2,7 @@ import Header1 from "@/components/headings/Header1";
 import Image from "next/image";
 import React from "react";
 import HeroImage from "@/public/images/home/hero.jpg";
+import Parallax from "@/components/animations/Parallax";
 
 function Hero() {
   return (
@@ -13,12 +14,13 @@ function Hero() {
         </span>
       </Header1>
       <div className="">
-        <Image
+        <Parallax image={HeroImage} alt="ipad on leather couch"/>
+        {/* <Image
           src={HeroImage}
           alt="ipad on leather couch"
           className="object-cover object-bottom"
           placeholder="blur"
-        />
+        /> */}
       </div>
     </section>
   );
