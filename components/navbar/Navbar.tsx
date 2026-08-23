@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header3 from "../headings/Header3";
 import AIAssistant from "../assistant/AIAssistant";
 import { Menu } from "lucide-react";
+import NavbarMenu from "./Menu";
 
 function Navbar() {
   return (
@@ -13,7 +14,7 @@ function Navbar() {
           <Header3 text="JM" className="font-sans-bold" />
         </Link>
       </div>
-      <nav className="flex items-center gap-4">
+      <nav className="flex items-center gap-2 sm:gap-4">
         <ul className="hidden sm:flex items-center gap-4">
           {navLinks.map((nav) => {
             return (
@@ -27,9 +28,9 @@ function Navbar() {
           })}
         </ul>
         <AIAssistant />
-        <button className="sm:hidden">
-          <Menu className="size-6" strokeWidth={2} />
-        </button>
+        <div className="block sm:hidden">
+          <NavbarMenu />
+        </div>
       </nav>
     </header>
   );

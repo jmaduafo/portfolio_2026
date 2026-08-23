@@ -14,7 +14,7 @@ import About2 from "@/public/images/home/about2.jpg";
   const line8 = "experiences."
 function About() {
   return (
-    <section className="flex flex-col gap-7">
+    <section className="flex flex-col gap-7" id="about">
       <div className="flex flex-col gap-5 md:flex-row justify-between items-start">
         <SectionTitle text="About" />
         <Header3

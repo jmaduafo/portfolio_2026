@@ -15,7 +15,7 @@ import React from "react";
 
 function Services() {
   return (
-    <section className="flex flex-col gap-4">
+    <section className="flex flex-col gap-4" id="services">
       <SectionTitle text="services" />
       <Accordion
         defaultValue={undefined}
@@ -25,7 +25,7 @@ function Services() {
           return (
             <AccordionItem value={item.title} key={item.title}>
               <AccordionTrigger>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-1.5 sm:gap-3">
                   <p>{(i + 1).toString().padStart(2, "0")}.</p>
                   <Header2
                     className="uppercase font-sans-medium"
@@ -34,7 +34,7 @@ function Services() {
                 </div>
               </AccordionTrigger>
               <AccordionContent>
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-1.5 sm:gap-3">
                   <p className="invisible">
                     {(i + 1).toString().padStart(2, "0")}.
                   </p>

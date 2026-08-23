@@ -1,10 +1,10 @@
 import React from "react";
 import { Project } from "@/types/types";
 import { Badge } from "../ui/badge";
-import Header5 from "../headings/Header5";
 import Image from "next/image";
 import Link from "next/link";
 import { createSlug } from "@/utils/helpers";
+import Header4 from "../headings/Header4";
 
 function WorkCard({ project }: { readonly project: Project }) {
   return (
@@ -20,7 +20,7 @@ function WorkCard({ project }: { readonly project: Project }) {
         </div>
       </Link>
       <div>
-        <Header5 text={project.title} className="font-sans-medium capitalize" />
+        <Header4 text={project.title} className="font-sans-medium capitalize" />
         <div className="mt-1.5 flex items-center flex-wrap gap-1">
           {project.roles.map((role) => {
             return (

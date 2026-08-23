@@ -5,7 +5,7 @@ import HeroImage from "@/public/images/home/hero.jpg";
 
 function Hero() {
   return (
-    <section className="flex flex-col gap-6">
+    <section className="flex flex-col gap-6" id="home">
       <Header1 className="max-w-3xl">
         <span className="">
           I&apos;m <span className="font-sans-italic">Jasmine Maduafokwa</span>, a
