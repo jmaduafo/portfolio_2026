@@ -1,14 +1,23 @@
-import { cn } from '@/lib/utils';
-import React from 'react'
+import { cn } from "@/lib/utils";
+import React from "react";
 
 function Header3({
-  text,
+  children,
   className,
 }: {
-  readonly text: string;
+  readonly children: React.ReactNode;
   readonly className?: string;
 }) {
-  return <h3 className={cn("text-2xl lg:text-4xl 2xl:text-5xl leading-none", className)}>{text}</h3>;
+  return (
+    <h3
+      className={cn(
+        "text-2xl lg:text-4xl 2xl:text-5xl leading-none",
+        className,
+      )}
+    >
+      {children}
+    </h3>
+  );
 }
 
-export default Header3
+export default Header3;

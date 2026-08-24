@@ -5,10 +5,14 @@ import { navLinks, socialLinks } from "@/utils/data";
 import Paragraph from "../headings/Paragraph";
 import SmallParagraph from "../headings/SmallParagraph";
 import Link from "next/link";
+import PopUp from "../animations/PopUp";
 
 function Footer() {
   return (
-    <footer id="contact" className="py-4 px-3 flex flex-col gap-3 bg-foreground text-background">
+    <footer
+      id="contact"
+      className="py-4 px-3 flex flex-col gap-3 bg-foreground text-background"
+    >
       <div className="uppercase flex justify-between items-start gap-5 flex-wrap">
         <div className="flex items-start gap-5 flex-wrap">
           <ul>
@@ -42,11 +46,13 @@ function Footer() {
           <SmallParagraph text="Jasmine Maduafokwa" />
         </div>
       </div>
-      <div className="uppercase font-sans-bold flex items-center justify-end gap-3">
-        <Header2 text="Portfolio" />
-        <Copyright className="size-12" />
-        <Header2 text="2026" />
-      </div>
+      <PopUp>
+        <div className="uppercase font-sans-bold flex items-center justify-end gap-3">
+          <Header2 text="Portfolio" />
+          <Copyright className="size-12" />
+          <Header2 text="2026" />
+        </div>
+      </PopUp>
     </footer>
   );
 }

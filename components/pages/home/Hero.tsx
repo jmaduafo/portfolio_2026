@@ -3,18 +3,19 @@ import Image from "next/image";
 import React from "react";
 import HeroImage from "@/public/images/home/hero.jpg";
 import Parallax from "@/components/animations/Parallax";
+import ParagraphAnimation from "@/components/animations/ParagraphAnimation";
 
 function Hero() {
   return (
     <section className="flex flex-col gap-6" id="home">
       <Header1 className="max-w-3xl">
-        <span className="">
-          I&apos;m <span className="font-sans-italic">Jasmine Maduafokwa</span>, a
-          web developer and UI/UX designer based in Chicago, Illinois
-        </span>
+        <ParagraphAnimation>
+          I'm Jasmine Maduafokwa,
+          a web developer and UI designer based in Chicago, IL
+        </ParagraphAnimation>
       </Header1>
       <div className="">
-        <Parallax image={HeroImage} alt="ipad on leather couch"/>
+        <Parallax image={HeroImage} alt="ipad on leather couch" />
         {/* <Image
           src={HeroImage}
           alt="ipad on leather couch"

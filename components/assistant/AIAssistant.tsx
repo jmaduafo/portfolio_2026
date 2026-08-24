@@ -25,6 +25,7 @@ import {
 import { Bubble, BubbleContent } from "../ui/bubble";
 import { useChat } from "@ai-sdk/react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import ReactMarkdown from "react-markdown";
 
 export const maxDuration = 30;
 
@@ -40,12 +41,11 @@ function AIAssistant() {
     "Which projects use Next.js?",
     "Which tools does Jasmine use?",
   ];
-  
-  
+
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() || loading) return;
-    
+
     // 2. Dispatch text payload safely to the transport loop
     sendMessage({ text: input });
     setInput("");
@@ -54,13 +54,16 @@ function AIAssistant() {
   const clearMessages = () => {
     setMessages([]);
   };
-  
-  const handlePrompt = (prompt: string, e: React.SubmitEvent<HTMLFormElement>) => {
+
+  const handlePrompt = (
+    prompt: string,
+    e: React.SubmitEvent<HTMLFormElement>,
+  ) => {
     setInput(prompt);
 
     handleSubmit(e);
-  }
-  
+  };
+
   return (
     <div className="">
       <Popover>
@@ -93,7 +96,10 @@ function AIAssistant() {
                     </Button>
                   }
                 />
-                <TooltipContent side={"bottom"} className={"bg-background text-foreground"}>
+                <TooltipContent
+                  side={"bottom"}
+                  className={"bg-background text-foreground"}
+                >
                   <span className="tracking-wide">Refresh chat</span>
                 </TooltipContent>
               </Tooltip>
@@ -114,7 +120,7 @@ function AIAssistant() {
                             if (part.type === "text") {
                               return (
                                 <BubbleContent key={index + 1}>
-                                  {part.text}
+                                  <ReactMarkdown>{part.text}</ReactMarkdown>
                                 </BubbleContent>
                               );
                             }
@@ -148,7 +154,9 @@ function AIAssistant() {
                         <button
                           key={prompt}
                           type="submit"
-                          onClick={() => {setInput(prompt)}}
+                          onClick={() => {
+                            setInput(prompt);
+                          }}
                           className={cn(
                             "whitespace-nowrap py-1 px-2 border border-background text-background rounded-full hover:bg-background hover:text-foreground",
                           )}

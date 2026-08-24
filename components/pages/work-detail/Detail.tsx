@@ -1,6 +1,9 @@
+import Appear from "@/components/animations/Appear";
+import CountingNumber from "@/components/animations/CountingNumber";
+import PopUp from "@/components/animations/PopUp";
+import ZoomIn from "@/components/animations/ZoomIn";
 import NoResults from "@/components/empty/NoResults";
 import Header1 from "@/components/headings/Header1";
-import Header2 from "@/components/headings/Header2";
 import Paragraph from "@/components/headings/Paragraph";
 import { Badge } from "@/components/ui/badge";
 import { createSlug, deSlug } from "@/utils/helpers";
@@ -47,50 +50,58 @@ function Detail({ title }: { title: string }) {
       <section>
         <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="flex-1 w-full">
-            <Image
-              src={project.images.landscape[0]}
-              alt={`${project.title} opening img`}
-              className="object-cover object-center"
-              placeholder="blur"
-            />
+            <ZoomIn>
+              <Image
+                src={project.images.landscape[0]}
+                alt={`${project.title} opening img`}
+                className="object-cover object-center"
+                placeholder="blur"
+              />
+            </ZoomIn>
           </div>
           <div className="flex flex-col gap-3 lg:max-w-xl xl:max-w-2xl 2xl:max-w-5xl">
             <div>
-              <Header1>{project.title}</Header1>
-              <div className="flex items-center gap-2 flex-wrap mt-1">
-                {project.roles.map((role) => {
-                  return (
-                    <Badge
-                      key={role}
-                      variant={"outline"}
-                      className="capitalize"
-                    >
-                      {role}
-                    </Badge>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="flex flex-col gap-3">
-              <Paragraph
-                text={project.descriptions[0]}
-                className="font-sans-medium"
-              />
-              <div className="flex flex-col gap-1">
-                <Badge className="text-sm 2xl:text-base">Tools used</Badge>
-                {/* <SmallParagraph text="TOOLS USED" className="font-sans-medium underline"/> */}
-                <p className="font-sans-medium">
-                  {project.technologies.map((tool, i) => {
+              <PopUp>
+                <Header1>{project.title}</Header1>
+              </PopUp>
+              <Appear>
+                <div className="flex items-center gap-2 flex-wrap mt-1">
+                  {project.roles.map((role) => {
                     return (
-                      <span key={tool} className="capitalize">
-                        {tool}
-                        {i !== project.technologies.length - 1 ? ", " : ""}
-                      </span>
+                      <Badge
+                        key={role}
+                        variant={"outline"}
+                        className="capitalize"
+                      >
+                        {role}
+                      </Badge>
                     );
                   })}
-                </p>
-              </div>
+                </div>
+              </Appear>
             </div>
+            <Appear>
+              <div className="flex flex-col gap-3">
+                <Paragraph
+                  text={project.descriptions[0]}
+                  className="font-sans-medium"
+                />
+                <div className="flex flex-col gap-1">
+                  <Badge className="text-sm 2xl:text-base">Tools used</Badge>
+                  {/* <SmallParagraph text="TOOLS USED" className="font-sans-medium underline"/> */}
+                  <p className="font-sans-medium">
+                    {project.technologies.map((tool, i) => {
+                      return (
+                        <span key={tool} className="capitalize">
+                          {tool}
+                          {i !== project.technologies.length - 1 ? ", " : ""}
+                        </span>
+                      );
+                    })}
+                  </p>
+                </div>
+              </div>
+            </Appear>
           </div>
         </div>
       </section>
@@ -99,14 +110,14 @@ function Detail({ title }: { title: string }) {
           {/* border-t border-t-foreground */}
           <div className="py-6 border-[1.5px] border-foreground flex items-center justify-evenly gap-3">
             <Statistics data={durationData} title={durationTitle} />
-            <div className="h-6 w-px bg-foreground/50"></div>
+            <div className="hidden sm:block h-6 w-px bg-foreground/50"></div>
             <Statistics
               data={project.technologies.length}
               title={"tools used"}
             />
-            <div className="h-6 w-px bg-foreground/50"></div>
+            <div className="hidden sm:block h-6 w-px bg-foreground/50"></div>
             <Statistics data={project.roles.length} title={"roles"} />
-            <div className="h-6 w-px bg-foreground/50"></div>
+            <div className="hidden sm:block h-6 w-px bg-foreground/50"></div>
             <Statistics data={+project.year} title={"year created"} />
           </div>
         </div>
@@ -127,7 +138,7 @@ function Detail({ title }: { title: string }) {
           })}
           {portraitImages.map((img, i) => {
             return (
-              <div className="md:h-[95vh]" key={`${img} ${i + 1}`}>
+              <div className="md:h-[60vh] xl:h-[90vh]" key={`${img} ${i + 1}`}>
                 <Image
                   src={img}
                   alt={`${project.title} portrait img ${i + 1}`}
@@ -142,7 +153,7 @@ function Detail({ title }: { title: string }) {
       <section className="py-4 flex flex-row flex-wrap justify-between gap-6">
         <div>
           <Link className="" href={`/works/${createSlug(prevProject.title)}`}>
-            <button className="flex items-center gap-2 text-4xl md:text-5xl uppercase font-sans-medium">
+            <button className="flex justify-between items-center gap-2 text-4xl md:text-5xl uppercase font-sans-medium">
               <ArrowLeft className="size-12" />
               {prevProject.title}
             </button>
@@ -150,7 +161,7 @@ function Detail({ title }: { title: string }) {
         </div>
         <div>
           <Link className="" href={`/works/${createSlug(nextProject.title)}`}>
-            <button className="flex items-center gap-2 text-4xl md:text-5xl uppercase font-sans-medium">
+            <button className="flex justify-between items-center gap-2 text-4xl md:text-5xl uppercase font-sans-medium">
               {nextProject.title}
               <ArrowRight className="size-12" />
             </button>
@@ -172,8 +183,13 @@ function Statistics({
 }) {
   return (
     <div className="flex flex-col gap-2 items-center">
-      <Header2 text={`${data}`} className="font-sans-medium" />
-      <Paragraph text={title} />
+      <CountingNumber
+        number={data}
+        className="font-sans-medium text-3xl lg:text-5xl 2xl:text-7xl"
+      />
+      <Appear>
+        <Paragraph text={title} />
+      </Appear>
     </div>
   );
 }
