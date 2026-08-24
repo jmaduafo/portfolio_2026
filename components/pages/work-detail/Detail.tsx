@@ -1,3 +1,4 @@
+import NoResults from "@/components/empty/NoResults";
 import Header1 from "@/components/headings/Header1";
 import Header2 from "@/components/headings/Header2";
 import Paragraph from "@/components/headings/Paragraph";
@@ -19,12 +20,19 @@ function Detail({ title }: { title: string }) {
   );
 
   if (!project || projectIndex < 0)
-    return <Paragraph text="Project not found" />;
+    return (
+      <NoResults
+        text={`Project "${title.charAt(0).toUpperCase() + title.slice(1)}" was not found.`}
+        buttonText="View all works"
+        buttonLink="/works"
+      />
+    );
 
-  // LANDSCAPE ND PORTRAIT IMAGES OF WORK
+  // LANDSCAPE AND PORTRAIT IMAGES OF WORK
   const landscapeImages = project.images.landscape.slice(1);
   const portraitImages = project.images.portrait;
 
+  // GETS DURATION STRING AND CONVERTS THE NUMBER STRING TO A NUMBER
   const durationData = +project.duration.split(" ")[0];
   const durationTitle = project.duration.split(" ")[1];
 

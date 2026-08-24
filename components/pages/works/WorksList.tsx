@@ -10,6 +10,7 @@ import React, { Fragment, useState } from "react";
 import { motion } from "framer-motion";
 import Appear from "@/components/animations/Appear";
 import PopUp from "@/components/animations/PopUp";
+import NoResults from "@/components/empty/NoResults";
 
 function WorksList() {
   const [selectedTag, setSelectedTag] = useState("all");
@@ -78,6 +79,11 @@ function WorksList() {
                 </motion.div>
               );
             })}
+      </div>
+      <div>
+        {selectedTag !== "all" && !getFilteredProjectsByRole(projects, selectedTag).length && (
+            <NoResults text="No results for this category" />
+          )}
       </div>
     </section>
   );

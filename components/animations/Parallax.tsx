@@ -23,7 +23,7 @@ function Parallax({
     offset: ['start end', 'end start'],
   })
 
-  const yScroll = useTransform(scrollYProgress, [0, 1], ['10%', '0%'])
+  const yScroll = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 
   return (
     <div ref={containerRef} className={cn('overflow-hidden w-full h-auto', height)}>
