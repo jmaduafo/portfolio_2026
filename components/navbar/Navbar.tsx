@@ -13,8 +13,8 @@ function Navbar() {
           <Header2 text="JM" className="font-sans-bold" />
         </Link>
       </div>
-      <nav className="flex items-center gap-2 sm:gap-4">
-        <ul className="hidden sm:flex items-center gap-4">
+      <nav className="flex items-center gap-2 md:gap-4">
+        <ul className="hidden md:flex items-center gap-4">
           {navLinks.map((nav) => {
             return (
               <li
@@ -27,7 +27,7 @@ function Navbar() {
           })}
         </ul>
         <AIAssistant />
-        <div className="block sm:hidden">
+        <div className="block md:hidden">
           <NavbarMenu />
         </div>
       </nav>

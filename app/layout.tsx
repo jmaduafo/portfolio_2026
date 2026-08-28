@@ -16,7 +16,7 @@ import LenisScroll from "@/components/lenis/LenisScroll";
 export const metadata: Metadata = {
   title: "Jasmine Maduafokwa Portfolio",
   description:
-    "This portfolio highlights Jasmine's UI/web design skills as well as her web development knowledge, showing users that she can deliver frontend websites from start to finish.",
+    "This portfolio highlights Jasmine's UI/UX and web design skills as well as her software development knowledge, showing users that she can deliver frontend websites from start to finish.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
