@@ -180,7 +180,7 @@ function AIAssistant() {
               disabled={loading}
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              className="w-full border-none outline-none text-base resize-none"
+              className="w-full border-none outline-none text-base resize-none placeholder-background/75"
               placeholder="Type here..."
             />
             <div className="flex justify-end">

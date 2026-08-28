@@ -3,7 +3,6 @@ import { navLinks } from "@/utils/data";
 import Link from "next/link";
 import AIAssistant from "../assistant/AIAssistant";
 import NavbarMenu from "./Menu";
-import Descend from "../animations/Descend";
 import Header2 from "../headings/Header2";
 
 function Navbar() {
@@ -20,7 +19,7 @@ function Navbar() {
             return (
               <li
                 key={nav.title}
-                className="uppercase text-sm font-sans-medium"
+                className="uppercase text-sm 2xl:text-lg font-sans-medium"
               >
                 <Link href={nav.href}>{nav.title}</Link>
               </li>

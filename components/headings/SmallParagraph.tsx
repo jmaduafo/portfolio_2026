@@ -8,7 +8,7 @@ function SmallParagraph({
   readonly text: string;
   readonly className?: string;
 }) {
-  return <p className={cn("text-xs md:text-sm lg:text-base 2xl:text-lg leading-snug", className)}>{text}</p>;
+  return <p className={cn("text-xs md:text-sm lg:text-base 2xl:text-xl leading-snug", className)}>{text}</p>;
 }
 
 export default SmallParagraph

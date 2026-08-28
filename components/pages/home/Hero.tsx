@@ -11,17 +11,11 @@ function Hero() {
       <Header1 className="max-w-3xl">
         <ParagraphAnimation>
           I'm Jasmine Maduafokwa,
-          a web developer and UI designer based in Chicago, IL
+          a web developer and UI designer based in Chicago, Illinois
         </ParagraphAnimation>
       </Header1>
       <div className="">
         <Parallax image={HeroImage} alt="ipad on leather couch" />
-        {/* <Image
-          src={HeroImage}
-          alt="ipad on leather couch"
-          className="object-cover object-bottom"
-          placeholder="blur"
-        /> */}
       </div>
     </section>
   );

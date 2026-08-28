@@ -87,9 +87,9 @@ function Detail({ title }: { title: string }) {
                   className="font-sans-medium"
                 />
                 <div className="flex flex-col gap-1">
-                  <Badge className="text-sm 2xl:text-base">Tools used</Badge>
+                  <Badge className="text-sm 2xl:text-lg tracking-wide">Tools used</Badge>
                   {/* <SmallParagraph text="TOOLS USED" className="font-sans-medium underline"/> */}
-                  <p className="font-sans-medium">
+                  <p className="font-sans-medium 2xl:text-xl">
                     {project.technologies.map((tool, i) => {
                       return (
                         <span key={tool} className="capitalize">
