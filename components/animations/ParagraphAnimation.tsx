@@ -21,7 +21,7 @@ function ParagraphAnimation({
               <motion.span
                 initial={{ y: "100%" }}
                 whileInView={{ y: "0%" }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
                 className=""
               >
