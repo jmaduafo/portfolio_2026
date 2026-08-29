@@ -295,3 +295,6 @@ export const projects = [
     }    
   },
 ];
+
+// FOR AI BOT
+export const portfolioContext = JSON.stringify(projects);

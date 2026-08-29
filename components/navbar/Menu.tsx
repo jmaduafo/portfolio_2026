@@ -38,7 +38,6 @@ function NavbarMenu() {
           </div>
         </SheetHeader>
         <ul className="h-full flex flex-col justify-center gap-1 text-[10vw] leading-none font-sans-medium uppercase p-6">
-          <li></li>
           {navLinks.map((nav) => {
             return (
               <li
