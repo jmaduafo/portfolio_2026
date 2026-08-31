@@ -24,23 +24,23 @@ export const navLinks = [
 export const socialLinks = [
   {
     title: "email",
-    href: "",
+    href: "jmaduafokwa@hotmail.com",
   },
   {
     title: "linkedin",
-    href: "",
+    href: "https://www.linkedin.com/in/jasmine-maduafokwa-48070a180/",
   },
   {
     title: "github",
-    href: "",
+    href: "https://github.com/jmaduafo",
   },
   {
     title: "behance",
-    href: "",
+    href: "https://www.behance.net/jasminemadu",
   },
   {
     title: "instagram",
-    href: "",
+    href: "https://www.instagram.com/jasmine_the_creative/",
   },
 ];
 

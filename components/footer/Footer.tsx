@@ -28,7 +28,7 @@ function Footer() {
             {socialLinks.map((social) => {
               return social.title.toLowerCase() !== "email" ? (
                 <li key={social.title}>
-                  <a target="_blank" rel="noopener noreferrer">
+                  <a href={social.href} target="_blank" rel="noopener noreferrer">
                     {social.title}
                   </a>
                 </li>
