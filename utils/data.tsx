@@ -104,7 +104,7 @@ export const awards = [
     year: 2024,
     month: "october",
     title_awarded: "Honorable mention",
-    website: ""
+    website: "https://www.awwwards.com/sites/jm-portfolio-2024"
   },
   {
     name: "VAND Design Award",
@@ -112,6 +112,6 @@ export const awards = [
     year: 2026,
     month: "april",
     title_awarded: "Shortlist",
-    website: ""
+    website: "https://vand.org/fr/shortlist-2025/jasmine-maduafokwa"
   },
 ]

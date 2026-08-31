@@ -22,7 +22,7 @@ function NavbarMenu() {
     <Sheet onOpenChange={setIsOpen} open={isOpen}>
       <SheetTrigger
         render={
-          <Button variant={"ghost"} className="">
+          <Button variant={"ghost"} className="" size={"icon-sm"}>
             <Menu className="size-6" strokeWidth={1.5} />
           </Button>
         }

@@ -46,9 +46,9 @@ function Awards() {
                     <Header6 text={award.name} />
                   </TableCell>
                   <TableCell className=" py-4 md:w-32 flex justify-end">
-                    <Link href={award.website}>
+                    <a href={award.website} target="_blank" rel="noopener noreferrer">
                       <ArrowUpRight className="size-6" />
-                    </Link>
+                    </a>
                   </TableCell>
                 </TableRow>
               ))}

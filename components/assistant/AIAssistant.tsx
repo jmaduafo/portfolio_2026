@@ -75,7 +75,7 @@ function AIAssistant() {
             </Button>
           }
         />
-        <PopoverContent className="max-w-xl w-fit">
+        <PopoverContent className="max-w-96 sm:max-w-xl w-fit">
           {/* HEADING */}
           <div className="border-b border-b-background/20 py-3 flex justify-between items-start gap-4">
             <div className="flex flex-col">

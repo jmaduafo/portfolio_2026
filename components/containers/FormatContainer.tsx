@@ -1,8 +1,17 @@
+import { cn } from "@/lib/utils";
 import React from "react";
 
-function FormatContainer({ children }: { readonly children: React.ReactNode }) {
+function FormatContainer({
+  children,
+  className,
+}: {
+  readonly children: React.ReactNode;
+  readonly className?: string;
+}) {
   return (
-    <div className="pt-[8vh] pb-[4vh] flex flex-col gap-14">{children}</div>
+    <div className={cn("pt-[8vh] pb-[4vh] flex flex-col gap-14", className)}>
+      {children}
+    </div>
   );
 }
 
